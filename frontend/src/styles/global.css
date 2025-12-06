@@ -1,0 +1,193 @@
+/* Import Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* 品牌色体系 - 深可可色 */
+  --color-primary: #3E2723;       /* 主品牌色 */
+  --color-primary-light: #6D4C41; /* 浅品牌色 */
+  --color-primary-dark: #1B0000;  /* 深品牌色 */
+  
+  /* 背景色体系 - 奶油白 */
+  --color-bg-base: #F9F7F2;       /* 页面底色 */
+  --color-bg-container: #FFFFFF;  /* 容器底色 */
+  
+  /* 辅助色 - 商务金 */
+  --color-accent: #C5A065;        /* 强调色 */
+  
+  /* 文本颜色 */
+  --color-text-primary: #2C1E1C;  /* 标题/正文 */
+  --color-text-secondary: #5D4037;/* 次要信息 */
+  --color-text-placeholder: #A1887F;
+  
+  /* 边框与分割线 */
+  --color-border: #EFEBE9;
+  
+  /* 布局参数 */
+  --radius-base: 6px;
+  --header-height: 64px;
+  --sider-width: 240px;
+}
+
+/* 全局重置 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* 滚动条美化 (Webkit) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D7CCC8;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A1887F;
+}
+
+/* Ant Design 深度定制 (配合ConfigProvider) */
+.ant-layout {
+  background: var(--color-bg-base) !important;
+  min-height: 100vh;
+}
+
+/* 侧边栏风格 */
+.ant-layout-sider {
+  background: var(--color-primary) !important;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+}
+
+.ant-menu.ant-menu-dark {
+  background: var(--color-primary) !important;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: var(--color-accent) !important;
+  color: #fff !important;
+  font-weight: 500;
+}
+
+.ant-menu-dark .ant-menu-sub {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 头部风格 */
+.ant-layout-header {
+  background: var(--color-bg-container) !important;
+  padding: 0 24px !important;
+  box-shadow: 0 1px 4px rgba(62, 39, 35, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 通用卡片容器 */
+.content-card {
+  background: var(--color-bg-container);
+  border-radius: var(--radius-base);
+  padding: 24px;
+  box-shadow: 0 1px 2px 0 rgba(62, 39, 35, 0.05);
+  margin-bottom: 24px;
+  border: 1px solid var(--color-border);
+}
+
+/* 表格样式微调 */
+.ant-table-thead > tr > th {
+  background: #F5F2EE !important; /* 浅奶油色表头 */
+  color: var(--color-text-secondary) !important;
+  font-weight: 600 !important;
+}
+
+/* 按钮样式微调 (覆盖Antd默认蓝色) */
+.ant-btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.ant-btn-primary:hover {
+  background-color: var(--color-primary-light) !important;
+  border-color: var(--color-primary-light) !important;
+}
+
+/* 实用工具类 */
+.page-header {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-accent { color: var(--color-accent); }
+.text-primary { color: var(--color-primary); }
+
+/* 状态徽标颜色 */
+.status-success { color: #52c41a; background: #f6ffed; border-color: #b7eb8f; }
+.status-warning { color: #faad14; background: #fffbe6; border-color: #ffe58f; }
+.status-error { color: #ff4d4f; background: #fff2f0; border-color: #ffccc7; }
+
+/* 打印专用样式 */
+@media print {
+  @page {
+    margin: 1cm;
+    size: auto;
+  }
+
+  body {
+    background: white;
+    font-size: 12pt;
+  }
+
+  /* 隐藏非打印区域 */
+  .ant-layout-sider,
+  .ant-layout-header,
+  .no-print,
+  .ant-btn,
+  .ant-pagination {
+    display: none !important;
+  }
+
+  .ant-layout {
+    background: white !important;
+  }
+
+  .ant-layout-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .content-card {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+
+  /* 打印时表格全展开 */
+  .ant-table-body {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ERP Pro - 进销存管理系统 | By HAISNAP</title>
+    
+    <!-- 字体库: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS (配置禁用 preflight 以防冲突 Ant Design) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: {
+          preflight: false, // 禁用默认样式重置，避免与 Ant Design 冲突
+        },
+        theme: {
+          extend: {
+            colors: {
+              primary: '#3E2723',
+              accent: '#C5A065',
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- 动态槽位：Head扩展 -->
+    <script>window.HAISNAP_HEAD_SLOT = true;</script>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- 动态槽位：Body扩展 -->
+    <div id="html-body-slot"></div>
+
+    <!-- React应用入口 -->
+    <script type="module" src="/src/index.jsx"></script>
+  </body>
+</html>
